@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "abouts",
+  "info": {
+    "singularName": "about",
+    "pluralName": "abouts",
+    "displayName": "About",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "aboutText": {
+      "type": "text",
+      "required": true,
+      "unique": false
+    }
+  }
+}

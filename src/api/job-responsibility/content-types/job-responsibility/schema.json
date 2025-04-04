@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "job_responsibilities",
+  "info": {
+    "singularName": "job-responsibility",
+    "pluralName": "job-responsibilities",
+    "displayName": "Job Responsibility",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "responsibility": {
+      "type": "text",
+      "required": true
+    },
+    "experience": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::experience.experience",
+      "inversedBy": "job_responsibilities"
+    }
+  }
+}
