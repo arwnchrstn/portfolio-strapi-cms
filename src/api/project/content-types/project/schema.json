@@ -37,12 +37,14 @@
       "type": "enumeration",
       "enum": [
         "SGV & Co.",
-        "We Support Inc. (PruLife UK)"
+        "We Support Inc. (PruLife UK)",
+        "Personal"
       ]
     },
     "isConfidential": {
       "type": "boolean",
-      "required": true
+      "required": true,
+      "default": false
     },
     "classification": {
       "type": "enumeration",
@@ -58,7 +60,8 @@
       "type": "string"
     },
     "githubLink": {
-      "type": "string"
+      "type": "text",
+      "default": "(Please separate links with a semi-colon if there is more than 1 repository))"
     }
   }
 }

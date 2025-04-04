@@ -546,8 +546,11 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
-    githubLink: Schema.Attribute.String;
-    isConfidential: Schema.Attribute.Boolean & Schema.Attribute.Required;
+    githubLink: Schema.Attribute.Text &
+      Schema.Attribute.DefaultTo<'(Please separate links with a semi-colon if there is more than 1 repository))'>;
+    isConfidential: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -557,7 +560,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String & Schema.Attribute.Required;
     projectLink: Schema.Attribute.String;
     projectRelation: Schema.Attribute.Enumeration<
-      ['SGV & Co.', 'We Support Inc. (PruLife UK)']
+      ['SGV & Co.', 'We Support Inc. (PruLife UK)', 'Personal']
     >;
     publishedAt: Schema.Attribute.DateTime;
     technologies: Schema.Attribute.Relation<
