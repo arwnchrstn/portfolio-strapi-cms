@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "educations",
+  "info": {
+    "singularName": "education",
+    "pluralName": "educations",
+    "displayName": "Education",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "schoolName": {
+      "type": "string",
+      "required": true
+    },
+    "yearAttended": {
+      "type": "date",
+      "required": true
+    },
+    "yearGraduated": {
+      "type": "date",
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "courseTaken": {
+      "type": "string",
+      "required": true
+    },
+    "schoolLogo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

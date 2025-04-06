@@ -44,6 +44,12 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "technologies": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::technology.technology",
+      "inversedBy": "experiences"
     }
   }
 }
