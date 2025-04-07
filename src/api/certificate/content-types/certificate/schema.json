@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "certificates",
+  "info": {
+    "singularName": "certificate",
+    "pluralName": "certificates",
+    "displayName": "certificate"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "courseName": {
+      "type": "string",
+      "required": true
+    },
+    "courseUrl": {
+      "type": "string",
+      "required": true
+    },
+    "relatedPhoto": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "courseProvider": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

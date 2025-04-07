@@ -36,6 +36,11 @@
       "relation": "manyToMany",
       "target": "api::experience.experience",
       "mappedBy": "technologies"
+    },
+    "showInPortfolio": {
+      "type": "boolean",
+      "default": true,
+      "required": true
     }
   }
 }

@@ -62,6 +62,13 @@
     "githubLink": {
       "type": "text",
       "default": "(Please separate links with a semi-colon if there is more than 1 repository))"
+    },
+    "relatedPhotos": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

@@ -423,6 +423,37 @@ export interface ApiBlogBlog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCertificateCertificate extends Struct.CollectionTypeSchema {
+  collectionName: 'certificates';
+  info: {
+    displayName: 'certificate';
+    pluralName: 'certificates';
+    singularName: 'certificate';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    courseName: Schema.Attribute.String & Schema.Attribute.Required;
+    courseProvider: Schema.Attribute.String & Schema.Attribute.Required;
+    courseUrl: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::certificate.certificate'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    relatedPhoto: Schema.Attribute.Media<'images'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEducationEducation extends Struct.CollectionTypeSchema {
   collectionName: 'educations';
   info: {
@@ -601,6 +632,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
       ['SGV & Co.', 'We Support Inc. (PruLife UK)', 'Personal']
     >;
     publishedAt: Schema.Attribute.DateTime;
+    relatedPhotos: Schema.Attribute.Media<'images', true>;
     technologies: Schema.Attribute.Relation<
       'manyToMany',
       'api::technology.technology'
@@ -641,6 +673,9 @@ export interface ApiTechnologyTechnology extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String & Schema.Attribute.Required;
     projects: Schema.Attribute.Relation<'manyToMany', 'api::project.project'>;
     publishedAt: Schema.Attribute.DateTime;
+    showInPortfolio: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
     type: Schema.Attribute.Enumeration<
       ['tools', 'framework', 'language', 'cloud', 'database']
     >;
@@ -1161,6 +1196,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::blog.blog': ApiBlogBlog;
+      'api::certificate.certificate': ApiCertificateCertificate;
       'api::education.education': ApiEducationEducation;
       'api::experience.experience': ApiExperienceExperience;
       'api::job-responsibility.job-responsibility': ApiJobResponsibilityJobResponsibility;
