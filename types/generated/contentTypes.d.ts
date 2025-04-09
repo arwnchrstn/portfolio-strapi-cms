@@ -614,6 +614,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    dateSort: Schema.Attribute.Date & Schema.Attribute.Required;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     githubLink: Schema.Attribute.Text &
       Schema.Attribute.DefaultTo<'(Please separate links with a semi-colon if there is more than 1 repository))'>;

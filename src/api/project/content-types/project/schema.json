@@ -64,11 +64,16 @@
       "default": "(Please separate links with a semi-colon if there is more than 1 repository))"
     },
     "relatedPhotos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "dateSort": {
+      "type": "date",
+      "required": true
     }
   }
 }
